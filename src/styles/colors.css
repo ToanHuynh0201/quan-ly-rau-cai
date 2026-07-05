@@ -1,0 +1,148 @@
+/*
+ * Color system — Quản lý bán buôn rau cải
+ *
+ * Kiến trúc 2 lớp token:
+ *   1. Primitive (--green-*, --gray-*, ...): giá trị thô của các dải màu.
+ *      Component KHÔNG dùng trực tiếp lớp này.
+ *   2. Semantic (--color-*): lớp duy nhất component được sử dụng.
+ *
+ * Dark mode (sau này): thêm block [data-theme="dark"] override lớp semantic,
+ * không cần sửa component.
+ */
+
+:root {
+	/* ================================================================
+	 * Lớp 1 — Primitive palette
+	 * ================================================================ */
+
+	--white: #ffffff;
+
+	/* Xanh lá tươi — primary */
+	--green-50: #f0fdf4;
+	--green-100: #dcfce7;
+	--green-200: #bbf7d0;
+	--green-300: #86efac;
+	--green-400: #4ade80;
+	--green-500: #22c55e;
+	--green-600: #16a34a;
+	--green-700: #15803d;
+	--green-800: #166534;
+	--green-900: #14532d;
+
+	/* Cam đất — accent */
+	--orange-50: #fff7ed;
+	--orange-100: #ffedd5;
+	--orange-200: #fed7aa;
+	--orange-300: #fdba74;
+	--orange-400: #fb923c;
+	--orange-500: #f97316;
+	--orange-600: #ea580c;
+	--orange-700: #c2410c;
+	--orange-800: #9a3412;
+	--orange-900: #7c2d12;
+
+	/* Xám — neutral */
+	--gray-50: #f9fafb;
+	--gray-100: #f3f4f6;
+	--gray-200: #e5e7eb;
+	--gray-300: #d1d5db;
+	--gray-400: #9ca3af;
+	--gray-500: #6b7280;
+	--gray-600: #4b5563;
+	--gray-700: #374151;
+	--gray-800: #1f2937;
+	--gray-900: #111827;
+
+	/* Đỏ — error */
+	--red-50: #fef2f2;
+	--red-200: #fecaca;
+	--red-500: #ef4444;
+	--red-600: #dc2626;
+	--red-700: #b91c1c;
+
+	/* Hổ phách — warning */
+	--amber-50: #fffbeb;
+	--amber-200: #fde68a;
+	--amber-500: #f59e0b;
+	--amber-600: #d97706;
+	--amber-700: #b45309;
+
+	/* Xanh dương — info */
+	--blue-50: #eff6ff;
+	--blue-200: #bfdbfe;
+	--blue-500: #3b82f6;
+	--blue-600: #2563eb;
+	--blue-700: #1d4ed8;
+
+	/* ================================================================
+	 * Lớp 2 — Semantic tokens (component chỉ dùng lớp này)
+	 * ================================================================ */
+
+	/* Brand */
+	--color-primary: var(--green-600);
+	--color-primary-hover: var(--green-700);
+	--color-primary-active: var(--green-800);
+	--color-primary-subtle: var(--green-50);
+	--color-primary-subtle-hover: var(--green-100);
+	--color-primary-border: var(--green-200);
+	--color-on-primary: var(--white);
+
+	/* Accent */
+	--color-accent: var(--orange-600);
+	--color-accent-hover: var(--orange-700);
+	--color-accent-subtle: var(--orange-50);
+	--color-on-accent: var(--white);
+
+	/* Text */
+	--color-text: var(--gray-900);
+	--color-text-secondary: var(--gray-600);
+	--color-text-muted: var(--gray-400);
+	--color-text-inverse: var(--white);
+	--color-text-link: var(--green-700);
+	--color-text-link-hover: var(--green-800);
+
+	/* Background & surface */
+	--color-bg: var(--gray-50);
+	--color-surface: var(--white);
+	--color-surface-hover: var(--gray-50);
+	--color-surface-active: var(--gray-100);
+	--color-bg-inverse: var(--gray-900);
+
+	/* Border */
+	--color-border: var(--gray-200);
+	--color-border-strong: var(--gray-300);
+	--color-border-focus: var(--green-600);
+
+	/* Status — success */
+	--color-success: var(--green-600);
+	--color-success-bg: var(--green-50);
+	--color-success-border: var(--green-200);
+	--color-success-text: var(--green-700);
+
+	/* Status — warning */
+	--color-warning: var(--amber-500);
+	--color-warning-bg: var(--amber-50);
+	--color-warning-border: var(--amber-200);
+	--color-warning-text: var(--amber-700);
+
+	/* Status — error */
+	--color-error: var(--red-600);
+	--color-error-bg: var(--red-50);
+	--color-error-border: var(--red-200);
+	--color-error-text: var(--red-700);
+
+	/* Status — info */
+	--color-info: var(--blue-600);
+	--color-info-bg: var(--blue-50);
+	--color-info-border: var(--blue-200);
+	--color-info-text: var(--blue-700);
+
+	/* Focus */
+	--color-focus-ring: color-mix(in srgb, var(--green-600) 40%, transparent);
+}
+
+/*
+ * [data-theme="dark"] {
+ *     ...override các token semantic (--color-*) tại đây khi làm dark mode
+ * }
+ */

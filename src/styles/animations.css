@@ -1,0 +1,100 @@
+/*
+ * Utility classes — animation & hover effects.
+ * Chỉ dùng token semantic (--color-*) từ colors.css.
+ */
+
+/* Hiện dần + trượt lên — dùng khi mount nội dung mới */
+.fade-in {
+	animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Nhấp nháy nhẹ — nhấn mạnh phần tử cần chú ý */
+.pulse {
+	animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.8;
+		transform: scale(1.05);
+	}
+}
+
+/* Skeleton loading — placeholder khi chờ dữ liệu bảng/card */
+.shimmer {
+	animation: shimmer 1.5s ease-in-out infinite;
+	background: linear-gradient(
+		90deg,
+		var(--color-surface-active) 25%,
+		var(--color-border) 50%,
+		var(--color-surface-active) 75%
+	);
+	background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -468px 0;
+	}
+	100% {
+		background-position: 468px 0;
+	}
+}
+
+/* Card nâng lên khi hover */
+.card-hover {
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+	transform: translateY(-4px);
+	box-shadow:
+		0 20px 25px -5px rgba(0, 0, 0, 0.1),
+		0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Nút nổi lên khi hover */
+.btn-float {
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+}
+
+.btn-float:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-float:active {
+	transform: translateY(0);
+}
+
+/* Tôn trọng cài đặt giảm chuyển động của người dùng */
+@media (prefers-reduced-motion: reduce) {
+	.fade-in,
+	.pulse,
+	.shimmer,
+	.card-hover,
+	.btn-float {
+		animation: none;
+		transition: none;
+	}
+}
