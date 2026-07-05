@@ -1,0 +1,101 @@
+.root {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--color-text);
+	cursor: pointer;
+}
+
+.root:has(.input:disabled) {
+	cursor: not-allowed;
+}
+
+/* Input gốc ẩn về hình ảnh nhưng vẫn nhận focus và sự kiện bàn phím */
+.input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.box {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	border: 1px solid var(--color-border-strong);
+	border-radius: 50%;
+	background-color: var(--color-surface);
+	transition:
+		background-color 0.15s ease,
+		border-color 0.15s ease;
+}
+
+/* Chấm tròn bên trong khi được chọn */
+.box::after {
+	content: "";
+	width: 40%;
+	height: 40%;
+	border-radius: 50%;
+	background-color: var(--color-on-primary);
+	opacity: 0;
+}
+
+.input:checked + .box {
+	background-color: var(--color-primary);
+	border-color: var(--color-primary);
+}
+
+.input:checked + .box::after {
+	opacity: 1;
+}
+
+.input:focus-visible + .box {
+	outline: 2px solid var(--color-border-focus);
+	outline-offset: 2px;
+}
+
+.input[aria-invalid="true"] + .box {
+	border-color: var(--color-error);
+}
+
+.input:disabled + .box {
+	opacity: 0.55;
+}
+
+.input:disabled ~ .text {
+	color: var(--color-text-muted);
+}
+
+/* ==== Sizes ==== */
+
+.sm {
+	font-size: 13px;
+}
+
+.sm .box {
+	width: 14px;
+	height: 14px;
+}
+
+.md {
+	font-size: 14px;
+}
+
+.md .box {
+	width: 16px;
+	height: 16px;
+}
+
+.lg {
+	font-size: 16px;
+}
+
+.lg .box {
+	width: 20px;
+	height: 20px;
+}

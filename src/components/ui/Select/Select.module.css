@@ -1,0 +1,74 @@
+.wrapper {
+	position: relative;
+	display: block;
+}
+
+/* Mũi tên chevron tự vẽ để dùng được token màu (không hardcode hex trong data-URI) */
+.wrapper::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 14px;
+	width: 7px;
+	height: 7px;
+	margin-top: -5px;
+	border-right: 2px solid var(--color-text-secondary);
+	border-bottom: 2px solid var(--color-text-secondary);
+	transform: rotate(45deg);
+	pointer-events: none;
+}
+
+.select {
+	width: 100%;
+	appearance: none;
+	border: 1px solid var(--color-border-strong);
+	border-radius: 6px;
+	background-color: var(--color-surface);
+	color: var(--color-text);
+	font-family: inherit;
+	cursor: pointer;
+	transition:
+		border-color 0.15s ease,
+		box-shadow 0.15s ease;
+}
+
+.select:focus-visible {
+	outline: none;
+	border-color: var(--color-border-focus);
+	box-shadow: 0 0 0 3px var(--color-focus-ring);
+}
+
+.select:disabled {
+	background-color: var(--color-surface-active);
+	color: var(--color-text-muted);
+	cursor: not-allowed;
+}
+
+.select[aria-invalid="true"] {
+	border-color: var(--color-error);
+}
+
+.select[aria-invalid="true"]:focus-visible {
+	border-color: var(--color-error);
+	box-shadow: 0 0 0 3px var(--color-focus-ring-error);
+}
+
+/* ==== Sizes ==== */
+
+.sm {
+	height: 32px;
+	padding: 0 28px 0 10px;
+	font-size: 13px;
+}
+
+.md {
+	height: 40px;
+	padding: 0 32px 0 12px;
+	font-size: 14px;
+}
+
+.lg {
+	height: 48px;
+	padding: 0 36px 0 14px;
+	font-size: 16px;
+}
