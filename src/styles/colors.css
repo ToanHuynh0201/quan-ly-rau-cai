@@ -107,6 +107,7 @@
 	--color-surface-hover: var(--gray-50);
 	--color-surface-active: var(--gray-100);
 	--color-bg-inverse: var(--gray-900);
+	--color-overlay: color-mix(in srgb, var(--gray-900) 45%, transparent);
 
 	/* Border */
 	--color-border: var(--gray-200);

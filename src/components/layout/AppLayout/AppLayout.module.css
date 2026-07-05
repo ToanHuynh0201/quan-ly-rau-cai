@@ -1,0 +1,48 @@
+/* Breakpoint mobile/desktop (768px) phải khớp với Sidebar.module.css. */
+
+.layout {
+	display: flex;
+	min-height: 100vh;
+}
+
+.main {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	flex: 1;
+}
+
+/* Container thay cho wrapper thủ công của từng trang */
+.container {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 24px;
+}
+
+/* Top bar chỉ hiện trên mobile */
+.topBar {
+	display: none;
+}
+
+@media (max-width: 767.98px) {
+	.topBar {
+		position: sticky;
+		top: 0;
+		z-index: var(--z-topbar);
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		height: var(--header-height);
+		padding: 0 12px;
+		background-color: var(--color-surface);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.topBarTitle {
+		font-weight: 600;
+	}
+}

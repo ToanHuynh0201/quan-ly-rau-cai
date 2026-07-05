@@ -1,0 +1,157 @@
+/* Breakpoint mobile/desktop (768px) phải khớp với AppLayout.module.css. */
+
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	width: 240px;
+	background-color: var(--color-surface);
+	border-right: 1px solid var(--color-border);
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	height: var(--header-height);
+	padding: 0 12px;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.brandIcon {
+	flex-shrink: 0;
+	color: var(--color-primary);
+}
+
+.brandName {
+	flex: 1;
+	font-weight: 600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.nav {
+	flex: 1;
+	padding: 8px;
+	overflow-y: auto;
+}
+
+.navList {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navLink {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 12px;
+	border-radius: 6px;
+	color: var(--color-text-secondary);
+	font-size: 14px;
+	text-decoration: none;
+	white-space: nowrap;
+	transition:
+		background-color 0.15s ease,
+		color 0.15s ease;
+}
+
+.navLink:hover {
+	background-color: var(--color-surface-hover);
+}
+
+.navLink.active {
+	background-color: var(--color-primary-subtle);
+	color: var(--color-primary-active);
+	font-weight: 600;
+}
+
+.footer {
+	padding: 8px;
+	border-top: 1px solid var(--color-border);
+}
+
+/* Overlay chỉ tồn tại ở chế độ drawer mobile */
+.overlay {
+	display: none;
+}
+
+/* ==== Desktop ≥768px: cột sticky toàn chiều cao, thu gọn bằng width ==== */
+
+@media (min-width: 768px) {
+	.sidebar {
+		position: sticky;
+		top: 0;
+		height: 100vh;
+		flex-shrink: 0;
+		transition: width 0.15s ease;
+	}
+
+	.collapsed {
+		width: 64px;
+	}
+
+	.collapsed .label {
+		display: none;
+	}
+
+	.collapsed .navLink {
+		justify-content: center;
+	}
+
+	.collapsed .header {
+		justify-content: center;
+		padding: 0;
+	}
+
+	/* Nút X chỉ dành cho mobile */
+	.closeButton {
+		display: none;
+	}
+}
+
+/* ==== Mobile <768px: drawer trượt từ trái, ẩn khỏi tab order khi đóng ==== */
+
+@media (max-width: 767.98px) {
+	.sidebar {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		z-index: var(--z-drawer);
+		transform: translateX(-100%);
+		visibility: hidden;
+		transition:
+			transform 0.15s ease,
+			visibility 0.15s;
+	}
+
+	.drawerOpen {
+		transform: translateX(0);
+		visibility: visible;
+	}
+
+	/* Toggle thu gọn chỉ dành cho desktop */
+	.toggleButton {
+		display: none;
+	}
+
+	.overlay {
+		display: block;
+		position: fixed;
+		inset: 0;
+		z-index: var(--z-overlay);
+		background-color: var(--color-overlay);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sidebar,
+	.navLink {
+		transition: none;
+	}
+}
