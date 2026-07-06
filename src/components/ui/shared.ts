@@ -17,3 +17,15 @@ export function joinIds(...ids: Array<string | undefined>): string | undefined {
 	const joined = ids.filter(Boolean).join(" ");
 	return joined || undefined;
 }
+
+/**
+ * Gán value cho input qua native setter rồi phát sự kiện "input" (bubbles)
+ * để React onChange chạy cả với controlled input — gán input.value trực tiếp
+ * sẽ bị value tracker của React nuốt sự kiện.
+ * Dùng nội bộ cho NumberInput (stepUp/stepDown) và SearchInput (nút xóa).
+ */
+export function setNativeInputValue(input: HTMLInputElement, value: string): void {
+	const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set;
+	setter?.call(input, value);
+	input.dispatchEvent(new Event("input", { bubbles: true }));
+}

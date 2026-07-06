@@ -1,0 +1,41 @@
+.root {
+	position: relative;
+	display: block;
+}
+
+/* Ẩn nút xóa mặc định của WebKit — đã có nút xóa riêng */
+.root input[type="search"]::-webkit-search-cancel-button {
+	appearance: none;
+}
+
+.clear {
+	position: absolute;
+	top: 50%;
+	right: var(--space-2);
+	transform: translateY(-50%);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	border: none;
+	border-radius: var(--radius-sm);
+	background: transparent;
+	color: var(--color-text-muted);
+	cursor: pointer;
+	transition:
+		background-color 0.15s ease,
+		color 0.15s ease;
+}
+
+.clear:hover {
+	background-color: var(--color-surface-active);
+	color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.clear {
+		transition: none;
+	}
+}

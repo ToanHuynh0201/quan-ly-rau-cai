@@ -1,0 +1,124 @@
+.root {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+	color: var(--color-text);
+	cursor: pointer;
+}
+
+.root:has(.input:disabled) {
+	cursor: not-allowed;
+}
+
+/* Input gốc ẩn về hình ảnh nhưng vẫn nhận focus và sự kiện bàn phím */
+.input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.track {
+	position: relative;
+	flex-shrink: 0;
+	border-radius: var(--radius-full);
+	background-color: var(--color-border-strong);
+	transition: background-color 0.15s ease;
+}
+
+.thumb {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	border-radius: 50%;
+	background-color: var(--color-surface);
+	box-shadow: var(--shadow-sm);
+	transition: transform 0.15s ease;
+}
+
+.input:checked + .track {
+	background-color: var(--color-primary);
+}
+
+.input:focus-visible + .track {
+	outline: 2px solid var(--color-border-focus);
+	outline-offset: 2px;
+}
+
+.input[aria-invalid="true"] + .track {
+	box-shadow: 0 0 0 1px var(--color-error);
+}
+
+.input:disabled + .track {
+	opacity: 0.55;
+}
+
+.input:disabled ~ .text {
+	color: var(--color-text-muted);
+}
+
+/* ==== Sizes — thumb = cao track - 4px, quãng trượt = rộng - cao ==== */
+
+.sm {
+	font-size: 13px;
+}
+
+.sm .track {
+	width: 32px;
+	height: 18px;
+}
+
+.sm .thumb {
+	width: 14px;
+	height: 14px;
+}
+
+.sm .input:checked + .track .thumb {
+	transform: translateX(14px);
+}
+
+.md {
+	font-size: 14px;
+}
+
+.md .track {
+	width: 40px;
+	height: 22px;
+}
+
+.md .thumb {
+	width: 18px;
+	height: 18px;
+}
+
+.md .input:checked + .track .thumb {
+	transform: translateX(18px);
+}
+
+.lg {
+	font-size: 16px;
+}
+
+.lg .track {
+	width: 48px;
+	height: 26px;
+}
+
+.lg .thumb {
+	width: 22px;
+	height: 22px;
+}
+
+.lg .input:checked + .track .thumb {
+	transform: translateX(22px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.track,
+	.thumb {
+		transition: none;
+	}
+}

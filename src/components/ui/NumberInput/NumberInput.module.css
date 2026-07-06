@@ -1,0 +1,136 @@
+.wrapper {
+	display: inline-flex;
+	align-items: stretch;
+	width: 100%;
+	border: 1px solid var(--color-border-strong);
+	border-radius: var(--radius-md);
+	background-color: var(--color-surface);
+	/* Clip nền hover của stepper theo bo góc */
+	overflow: hidden;
+	transition:
+		border-color 0.15s ease,
+		box-shadow 0.15s ease;
+}
+
+/* Focus ring đặt trên wrapper vì input con không có viền riêng */
+.wrapper:focus-within {
+	border-color: var(--color-border-focus);
+	box-shadow: var(--shadow-focus);
+}
+
+.invalid {
+	border-color: var(--color-error);
+}
+
+.invalid:focus-within {
+	border-color: var(--color-error);
+	box-shadow: var(--shadow-focus-error);
+}
+
+.disabled {
+	background-color: var(--color-surface-active);
+}
+
+.input {
+	flex: 1;
+	min-width: 0;
+	border: none;
+	background: transparent;
+	color: var(--color-text);
+	font-family: inherit;
+	font-size: inherit;
+	text-align: center;
+	appearance: textfield;
+	-moz-appearance: textfield;
+}
+
+.input:focus-visible {
+	outline: none;
+}
+
+.input:disabled {
+	color: var(--color-text-muted);
+	cursor: not-allowed;
+}
+
+/* Ẩn spin button mặc định — đã có nút tăng/giảm riêng */
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+	appearance: none;
+	margin: 0;
+}
+
+.stepper {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	color: var(--color-text-secondary);
+	cursor: pointer;
+	transition: background-color 0.15s ease;
+}
+
+.stepper:first-child {
+	border-right: 1px solid var(--color-border);
+}
+
+.stepper:last-child {
+	border-left: 1px solid var(--color-border);
+}
+
+.stepper:hover:not(:disabled) {
+	background-color: var(--color-surface-hover);
+	color: var(--color-text);
+}
+
+.stepper:disabled {
+	color: var(--color-text-muted);
+	cursor: not-allowed;
+}
+
+.unit {
+	display: inline-flex;
+	align-items: center;
+	padding-right: var(--space-2-5);
+	color: var(--color-text-muted);
+	white-space: nowrap;
+}
+
+/* ==== Sizes ==== */
+
+.sm {
+	height: 32px;
+	font-size: 13px;
+}
+
+.sm .stepper {
+	width: 28px;
+}
+
+.md {
+	height: 40px;
+	font-size: 14px;
+}
+
+.md .stepper {
+	width: 32px;
+}
+
+.lg {
+	height: 48px;
+	font-size: 16px;
+}
+
+.lg .stepper {
+	width: 40px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wrapper,
+	.stepper {
+		transition: none;
+	}
+}
