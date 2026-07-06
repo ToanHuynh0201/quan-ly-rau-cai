@@ -1,0 +1,39 @@
+.page {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-6);
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+/* Title bên trái, actions bên phải; màn hẹp thì actions tự xuống dòng */
+.titleRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: var(--space-3);
+}
+
+.title {
+	margin: 0;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+	gap: var(--space-2);
+}
+
+.description {
+	margin: 0;
+	font-size: 14px;
+	color: var(--color-text-secondary);
+}
