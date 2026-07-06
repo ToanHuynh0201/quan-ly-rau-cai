@@ -66,9 +66,7 @@
 
 .card-hover:hover {
 	transform: translateY(-4px);
-	box-shadow:
-		0 20px 25px -5px rgba(0, 0, 0, 0.1),
-		0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	box-shadow: var(--shadow-lg);
 }
 
 /* Nút nổi lên khi hover */
@@ -80,7 +78,7 @@
 
 .btn-float:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow-md);
 }
 
 .btn-float:active {

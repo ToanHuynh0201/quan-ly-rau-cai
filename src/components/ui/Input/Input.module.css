@@ -6,7 +6,7 @@
 .input {
 	width: 100%;
 	border: 1px solid var(--color-border-strong);
-	border-radius: 6px;
+	border-radius: var(--radius-md);
 	background-color: var(--color-surface);
 	color: var(--color-text);
 	font-family: inherit;
@@ -22,7 +22,7 @@
 .input:focus-visible {
 	outline: none;
 	border-color: var(--color-border-focus);
-	box-shadow: 0 0 0 3px var(--color-focus-ring);
+	box-shadow: var(--shadow-focus);
 }
 
 .input:disabled {
@@ -37,37 +37,37 @@
 
 .input[aria-invalid="true"]:focus-visible {
 	border-color: var(--color-error);
-	box-shadow: 0 0 0 3px var(--color-focus-ring-error);
+	box-shadow: var(--shadow-focus-error);
 }
 
 /* ==== Sizes ==== */
 
 .sm {
 	height: 32px;
-	padding: 0 10px;
+	padding: 0 var(--space-2-5);
 	font-size: 13px;
 }
 
 .md {
 	height: 40px;
-	padding: 0 12px;
+	padding: 0 var(--space-3);
 	font-size: 14px;
 }
 
 .lg {
 	height: 48px;
-	padding: 0 14px;
+	padding: 0 var(--space-3-5);
 	font-size: 16px;
 }
 
 /* ==== Icons ==== */
 
 .hasIconLeft {
-	padding-left: 36px;
+	padding-left: var(--space-9);
 }
 
 .hasIconRight {
-	padding-right: 36px;
+	padding-right: var(--space-9);
 }
 
 .icon {
@@ -81,9 +81,9 @@
 }
 
 .iconLeft {
-	left: 12px;
+	left: var(--space-3);
 }
 
 .iconRight {
-	right: 12px;
+	right: var(--space-3);
 }

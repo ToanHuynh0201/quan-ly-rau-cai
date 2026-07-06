@@ -11,9 +11,9 @@
 .header {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: var(--space-2);
 	height: var(--header-height);
-	padding: 0 12px;
+	padding: 0 var(--space-3);
 	border-bottom: 1px solid var(--color-border);
 }
 
@@ -32,14 +32,14 @@
 
 .nav {
 	flex: 1;
-	padding: 8px;
+	padding: var(--space-2);
 	overflow-y: auto;
 }
 
 .navList {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: var(--space-1);
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -48,9 +48,9 @@
 .navLink {
 	display: flex;
 	align-items: center;
-	gap: 12px;
-	padding: 10px 12px;
-	border-radius: 6px;
+	gap: var(--space-3);
+	padding: var(--space-2-5) var(--space-3);
+	border-radius: var(--radius-md);
 	color: var(--color-text-secondary);
 	font-size: 14px;
 	text-decoration: none;
@@ -71,7 +71,7 @@
 }
 
 .footer {
-	padding: 8px;
+	padding: var(--space-2);
 	border-top: 1px solid var(--color-border);
 }
 

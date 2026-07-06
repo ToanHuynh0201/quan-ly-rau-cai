@@ -91,6 +91,8 @@
 	--color-accent: var(--orange-600);
 	--color-accent-hover: var(--orange-700);
 	--color-accent-subtle: var(--orange-50);
+	--color-accent-border: var(--orange-200);
+	--color-accent-text: var(--orange-700);
 	--color-on-accent: var(--white);
 
 	/* Text */

@@ -20,7 +20,7 @@
 .container {
 	max-width: 960px;
 	margin: 0 auto;
-	padding: 24px;
+	padding: var(--space-6);
 }
 
 /* Top bar chỉ hiện trên mobile */
@@ -35,9 +35,9 @@
 		z-index: var(--z-topbar);
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: var(--space-2);
 		height: var(--header-height);
-		padding: 0 12px;
+		padding: 0 var(--space-3);
 		background-color: var(--color-surface);
 		border-bottom: 1px solid var(--color-border);
 	}

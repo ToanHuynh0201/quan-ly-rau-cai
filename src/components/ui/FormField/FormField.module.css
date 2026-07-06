@@ -1,7 +1,7 @@
 .field {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: var(--space-1-5);
 }
 
 .label {
@@ -11,7 +11,7 @@
 }
 
 .required {
-	margin-left: 2px;
+	margin-left: var(--space-0-5);
 	color: var(--color-error);
 }
 

@@ -11,11 +11,6 @@
 	/* Layout tokens — dùng chung giữa Sidebar và AppLayout */
 	--header-height: 56px;
 
-	/* Thứ tự lớp phủ: top bar < overlay < drawer */
-	--z-topbar: 30;
-	--z-overlay: 40;
-	--z-drawer: 50;
-
 	font-family: var(--font-sans);
 	line-height: 1.6;
 	font-weight: 400;
@@ -44,6 +39,11 @@ body {
 
 #root {
 	min-height: 100vh;
+}
+
+/* Khoá cuộn body khi có modal (<dialog>.showModal) đang mở */
+body:has(dialog:modal) {
+	overflow: hidden;
 }
 
 a {
