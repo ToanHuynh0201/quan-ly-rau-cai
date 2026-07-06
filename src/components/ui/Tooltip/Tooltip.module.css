@@ -1,0 +1,29 @@
+.content {
+	z-index: var(--z-dropdown);
+	max-width: 260px;
+	padding: var(--space-1-5) var(--space-2-5);
+	border-radius: var(--radius-sm);
+	background-color: var(--color-bg-inverse);
+	color: var(--color-text-inverse);
+	font-size: 12px;
+	line-height: 1.4;
+	box-shadow: var(--shadow-md);
+	animation: tooltip-in 0.12s ease;
+}
+
+.arrow {
+	fill: var(--color-bg-inverse);
+}
+
+@keyframes tooltip-in {
+	from {
+		opacity: 0;
+		transform: scale(0.96);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.content {
+		animation: none;
+	}
+}

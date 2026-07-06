@@ -1,0 +1,66 @@
+.content {
+	z-index: var(--z-dropdown);
+	min-width: 180px;
+	padding: var(--space-1);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	background-color: var(--color-surface);
+	box-shadow: var(--shadow-md);
+	animation: menu-in 0.12s ease;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	padding: var(--space-2) var(--space-2-5);
+	border-radius: var(--radius-md);
+	font-size: 14px;
+	color: var(--color-text);
+	cursor: pointer;
+	user-select: none;
+	outline: none;
+}
+
+/* Radix đánh dấu item đang hover/focus bằng data-highlighted */
+.item[data-highlighted] {
+	background-color: var(--color-surface-hover);
+}
+
+.item[data-disabled] {
+	color: var(--color-text-muted);
+	cursor: not-allowed;
+}
+
+.danger {
+	color: var(--color-error);
+}
+
+.danger[data-highlighted] {
+	background-color: var(--color-error-bg);
+}
+
+.icon {
+	display: inline-flex;
+	flex-shrink: 0;
+	color: inherit;
+}
+
+.separator {
+	height: 1px;
+	margin: var(--space-1) var(--space-1);
+	background-color: var(--color-border);
+}
+
+@keyframes menu-in {
+	from {
+		opacity: 0;
+		transform: translateY(-4px) scale(0.98);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.content {
+		animation: none;
+	}
+}

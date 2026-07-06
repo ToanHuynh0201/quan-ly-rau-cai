@@ -1,0 +1,25 @@
+/*
+ * Reset style UA mặc định của popover (border, margin auto, fit-content...)
+ * để wrapper phủ toàn viewport nhưng trong suốt và không chặn chuột —
+ * chỉ toast thật bên trong nhận tương tác.
+ */
+.popover {
+	position: fixed;
+	inset: 0;
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	overflow: visible;
+	pointer-events: none;
+}
+
+.popover :global([data-sonner-toaster]) {
+	pointer-events: none;
+}
+
+.popover :global([data-sonner-toast]) {
+	pointer-events: auto;
+}

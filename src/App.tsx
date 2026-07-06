@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 
 import { AppLayout } from "@/components/layout";
+import { Toaster } from "@/components/ui";
 import { ROUTER } from "@/constants";
 import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
@@ -31,6 +32,7 @@ function App() {
 				</Route>
 				<Route path={ROUTER.NOT_FOUND} element={<NotFoundPage />} />
 			</Routes>
+			<Toaster />
 		</BrowserRouter>
 	);
 }
