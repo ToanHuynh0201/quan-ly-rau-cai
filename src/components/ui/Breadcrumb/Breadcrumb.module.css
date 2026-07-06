@@ -1,0 +1,49 @@
+.list {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--space-1-5);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 13px;
+}
+
+.item {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-1-5);
+}
+
+.link {
+	color: var(--color-text-secondary);
+	text-decoration: none;
+	border-radius: var(--radius-sm);
+	transition: color 0.15s ease;
+}
+
+.link:hover {
+	color: var(--color-text-link-hover);
+	text-decoration: underline;
+}
+
+/* Item giữa không có to — hiển thị như text thường */
+.label {
+	color: var(--color-text-secondary);
+}
+
+.current {
+	color: var(--color-text);
+	font-weight: 500;
+}
+
+.separator {
+	color: var(--color-text-muted);
+	flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.link {
+		transition: none;
+	}
+}
