@@ -87,3 +87,11 @@
 .iconRight {
 	right: var(--space-3);
 }
+
+/* Mobile <768px (khớp AppLayout/Sidebar): font ≥16px để iOS không zoom khi focus */
+@media (max-width: 767.98px) {
+	.sm,
+	.md {
+		font-size: 16px;
+	}
+}

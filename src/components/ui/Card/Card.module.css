@@ -22,6 +22,9 @@
 
 .title {
 	margin: 0;
+	/* Cho phép co lại cạnh .actions (flex-shrink: 0) — title dài thì ngắt dòng */
+	min-width: 0;
+	overflow-wrap: break-word;
 	font-size: 15px;
 	font-weight: 600;
 	color: var(--color-text);

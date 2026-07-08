@@ -128,6 +128,15 @@
 	width: 40px;
 }
 
+/* Mobile <768px (khớp AppLayout/Sidebar): font ≥16px để iOS không zoom khi focus.
+   Input con dùng font-size: inherit nên chỉ cần nâng ở size class. */
+@media (max-width: 767.98px) {
+	.sm,
+	.md {
+		font-size: 16px;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.wrapper,
 	.stepper {

@@ -37,3 +37,10 @@
 	font-size: 14px;
 	color: var(--color-text-secondary);
 }
+
+/* Mobile <768px (khớp AppLayout/Sidebar): title nhỏ lại cho cân màn hẹp */
+@media (max-width: 767.98px) {
+	.title {
+		font-size: 20px;
+	}
+}

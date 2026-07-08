@@ -3,6 +3,8 @@
 .layout {
 	display: flex;
 	min-height: 100vh;
+	/* dvh: chiều cao viewport thật trên mobile (thanh URL co giãn) */
+	min-height: 100dvh;
 }
 
 .main {
@@ -29,6 +31,11 @@
 }
 
 @media (max-width: 767.98px) {
+	/* Màn hẹp: giảm padding để nội dung rộng hơn */
+	.container {
+		padding: var(--space-4);
+	}
+
 	.topBar {
 		position: sticky;
 		top: 0;

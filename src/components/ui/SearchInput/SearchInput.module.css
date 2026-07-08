@@ -34,6 +34,15 @@
 	color: var(--color-text);
 }
 
+/* Màn cảm ứng: nới vùng bấm của nút xóa lên ~40px mà không đổi hiển thị */
+@media (pointer: coarse) {
+	.clear::before {
+		content: "";
+		position: absolute;
+		inset: -8px;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.clear {
 		transition: none;

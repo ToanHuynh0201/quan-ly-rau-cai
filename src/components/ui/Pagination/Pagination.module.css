@@ -1,6 +1,8 @@
 .root {
 	display: inline-flex;
 	align-items: center;
+	/* Màn hẹp + nhiều trang: xuống dòng thay vì tràn ngang */
+	flex-wrap: wrap;
 	gap: var(--space-1);
 }
 
